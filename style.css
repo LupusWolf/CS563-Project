@@ -1,12 +1,18 @@
-html {
-    background-color: black;
-}
 
+:root { /*copied from provided code in homeworks. Colors from https://coolors.co/edae49-d1495b-00798c-30638e-003d5b*/
+    --primary: #00798c;
+    --secondary: #30638e;
+    --third: #003d5b;
+    --fourth: #d1495b;
+  }
+html {
+    background-color: var(--primary);
+}
 .navbar {
     display: flex;
     flex-direction: row;
     justify-content: left;
-    background-color: darkgray;
+    background-color: var(--primary);
     padding-left: 0%;
     padding-right: 0%;
     margin-left: 0%;
@@ -15,22 +21,19 @@ html {
 }
 .navitem {
     width: 200px;
-    background-color: gray;
+    background-color: var(--third);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-color: black;
+    border-color: var(--primary);
     border-style: solid;
-    border-width: 0px 1px 0px 1px;
+    border-width: 0px 10px 0px 10px;
     color: white;
-    flex-shrink: 1;
+    border-radius: 50px ; /*https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius*/
+    flex-grow: 1;
 }
 .largenavitem {
     width: 300px;
-}
-.largerightbordernavitem
-{
-    border-width: 0px 2px 0px 1px;
 }
 .contentGrid {
     display: flex;
@@ -55,6 +58,12 @@ html {
 .contentBlock.about {
     align-items: center;
 }
+.textbox {
+    background-color: var(--secondary);
+    padding: 10%;
+    border-radius: 20%;
+    margin: 10%;
+}
 .contentBlock.work {
     padding-top: 15%;
 }
@@ -63,7 +72,11 @@ html {
     align-items: center;
 }
 .contentBlock.projects {
-    
+    flex-direction: column;
+    align-items: center;
+}
+.contentBlock.projects >* {
+    display: flex;
 }
 .resumeList {
     display: flex;
