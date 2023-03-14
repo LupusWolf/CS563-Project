@@ -1,12 +1,19 @@
-
-:root { /*copied from provided code in homeworks. Colors from https://coolors.co/edae49-d1495b-00798c-30638e-003d5b*/
-    --primary: #00798c;
-    --secondary: #30638e;
-    --third: #003d5b;
+:root { 
+    --primary: rgba(128, 128, 128, 0.404); /*https://stackoverflow.com/questions/11807286/how-to-make-div-background-color-transparent-in-css*/
+    --secondary: lightgray;
+    --third: rgba(168, 167, 167, 0.418);
     --fourth: #d1495b;
   }
-html {
-    background-color: var(--primary);
+
+body {
+    background: rgb(246, 219, 231);
+    background: radial-gradient(
+      circle,
+      rgb(245, 245, 245) 0%,
+      rgb(137, 164, 252) 100%
+    );
+    font-family: Trebuchet MS, sans-serif; /*https://www.w3.org/Style/Examples/007/fonts.en.html*/
+    margin: 0px;
 }
 .navbar {
     display: flex;
@@ -17,27 +24,33 @@ html {
     padding-right: 0%;
     margin-left: 0%;
     margin-right: 0%;
-    height: 50px;
+    height: 60px;
 }
 .navitem {
     width: 200px;
-    background-color: var(--third);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-color: var(--primary);
-    border-style: solid;
-    border-width: 0px 10px 0px 10px;
-    color: white;
-    border-radius: 50px ; /*https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius*/
+    /*border-width: 0px 10px 0px 10px;*/
+    color: black;
+    /*border-radius: 50px ;*/ /*https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius*/
     flex-grow: 1;
 }
-.largenavitem {
+.navitem > * {
+    color: black;
+    opacity: 100%;
+}
+.navbutton:hover {
+    background-color: var(--fourth);
+}
+
+.navheader {
     width: 300px;
 }
 .contentGrid {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     padding-left: 0%;
     padding-right: 0%;
@@ -48,10 +61,8 @@ html {
 .contentBlock {
     width: 200px;
     display: flex;
-    padding-right: 5%;
-    padding-left: 5%;
     justify-content: center;
-    color: white;
+    color: black;
     font-size: 20px;
     flex-grow: 1;
 }
@@ -60,26 +71,40 @@ html {
 }
 .textbox {
     background-color: var(--secondary);
-    padding: 10%;
-    border-radius: 20%;
-    margin: 10%;
+    padding: 5%;
+    border-radius: 5%;
+    margin: 5%;
+    border-color: var(--third);
+    border-width: 5px;
+    border-style: solid;
 }
+
 .contentBlock.work {
-    padding-top: 15%;
-}
-.contentBlock.work>* {
     display: flex;
     align-items: center;
-}
-.contentBlock.projects {
     flex-direction: column;
-    align-items: center;
-}
-.contentBlock.projects >* {
-    display: flex;
+    justify-content: flex-start;
 }
 .resumeList {
     display: flex;
+    padding-top: 20%;
     list-style: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.resumeList >*{
+    display: flex;
+    justify-content: center;
+    width: 130px;
+    height: 100px;
+}
+
+.contentBlock.projects {
+    justify-content: flex-start;
     flex-direction: column;
+}
+.contentBlock.projects >* {
+    display: flex;
+    align-items: center;
 }
