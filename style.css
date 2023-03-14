@@ -1,0 +1,47 @@
+html {
+    background-color: black;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: gray;
+    padding-left: 0%;
+    padding-right: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+    height: 50px;
+}
+.navitem {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    color: white;
+    flex-grow: 1;
+}
+
+.contentGrid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 0%;
+    padding-right: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+    height: 800px;
+}
+.contentBlock {
+    width: 200px;
+    display: flex;
+    padding: 5%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    flex-grow: 1;
+}
