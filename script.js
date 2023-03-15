@@ -118,14 +118,14 @@ function setProjects() {
   setOneProject(
     "Optimizer/Compiler",
     "https://github.com/PSU-Essentials-of-Compilation/python-compiler-team6/tree/week6",
-    "compiler.jpg",
+    "compiler.JPG",
     "This code optimizes compiled code by " +
       "performing constant propagation, partial evaluation, branch removal, and useless instruction removal. These are then performed itertively for maximum optimization."
   );
   setOneProject(
     "Airline Manager",
     "https://github.com/LupusWolf/PortlandStateAdvancedJava/tree/main/airline-web",
-    "airline.jpg",
+    "airline.JPG",
     "This application consists of two parts:" +
       "\n\nThe first application is a webserver that allows POST requests to add flights to the server and get requests to search for flights based on criteria" +
       "\n\nThe second application is an interface that allows the user to interact with the webserver through the commandline"
