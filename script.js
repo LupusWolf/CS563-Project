@@ -1,6 +1,3 @@
-//let left = document.querySelector("#contentleft");
-//let right = document.querySelector("#contentright");
-//app.innerHTML = '';
 let contentNode = document.querySelector('.contentGrid');
 
 var currentState;
@@ -9,10 +6,6 @@ function setupTransition(classname)
 {
     currentState = classname;
     contentNode.innerHTML = '';
-    //left.innerHTML = '';
-    //right.innerHTML = '';
-    //left.className = "contentBlock " + classname;
-    //right.className = "contentBlock " + classname;
 }
 function createContentBlock()
 {
@@ -36,7 +29,7 @@ function setAbout()
     image.src = 'matthew.jpg';
     image.width = 400;
     image.height = 400;
-    image.style.borderRadius = "50%"
+    image.style.borderRadius = "70px"
     image.alt = "headshot of Matthew Cole";
     image.style.display = "block";
     right.append(image);
@@ -46,7 +39,7 @@ document.querySelector("#about").addEventListener("click", setAbout);
 function createListElement(title, elements, footer)
 {
     var node = createContentBlock();
-    var header = document.createElement("h1");
+    var header = document.createElement("h2");
     header.innerText = title;
     node.append(header);
     var listNode = document.createElement('ul');
@@ -81,13 +74,12 @@ function setOneProject(title, githubUrl, description)
 {
     var node = createContentBlock();
     var childNode = document.createElement("p");
-    childNode.innerHTML = `<a href="${githubUrl}"><h1>${title}</h1></a>`;
+    childNode.innerHTML = `<a href="${githubUrl}"><h2>${title}</h2></a>`;
     node.append(childNode);
     childNode = document.createElement("p");
     childNode.innerText = description;
     node.append(childNode);
 
-    //learned about logos here https://github.com/logos
 }
 function setProjects()
 {
@@ -101,11 +93,44 @@ function setProjects()
 }
 document.querySelector("#projects").addEventListener("click", setProjects);
 
+
+function addField(form, name, inputType, big)
+{
+    var container = document.createElement("div");
+    container.className = "contactField";
+    container.innerHTML = `
+    <label for="${name}">${name}:</label>
+    <${big ? "textarea" : `input type="${inputType}"`}  id="${name}" name="${name}" />`
+    form.appendChild(container);
+}
+function addButton(form, name, inputType)
+{
+    var button = document.createElement("button");
+    button.innerText = name;
+    button.type = inputType;
+    form.appendChild(button);
+}
 function setContact()
 {
     setupTransition("contact");
-    var left = createContentBlock();
-    left.innerHTML = 'Contact';
+    var main = createContentBlock();
+    
+    var form = document.createElement("form");
+    form.className = "contactForm";
+    var header = document.createElement("h2");
+    header.innerText = "Contact Form:";
+    form.append(header);
+    form.className = "textbox";
+    addField(form, "Name", "text", false);
+    addField(form, "Email", "email",false);
+    addField(form, "Message", "text",true);
+
+    var buttons = document.createElement("div");
+    buttons.className = "contactButton";
+    addButton(buttons, "Submit", "submit");
+    addButton(buttons, "Reset", "reset");
+    form.appendChild(buttons);
+    main.appendChild(form);
 }
 document.querySelector("#contact").addEventListener("click", setContact);
 

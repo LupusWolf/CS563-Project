@@ -4,7 +4,6 @@
     --third: rgba(168, 167, 167, 0.418);
     --fourth: #d1495b;
   }
-
 body {
     background: rgb(246, 219, 231);
     background: radial-gradient(
@@ -13,7 +12,7 @@ body {
       rgb(137, 164, 252) 100%
     );
     font-family: Trebuchet MS, sans-serif; /*https://www.w3.org/Style/Examples/007/fonts.en.html*/
-    margin: 0px;
+    margin: 0;
 }
 .navbar {
     display: flex;
@@ -72,7 +71,7 @@ body {
 .textbox {
     background-color: var(--secondary);
     padding: 5%;
-    border-radius: 5%;
+    border-radius: 50px;
     margin: 5%;
     border-color: var(--third);
     border-width: 5px;
@@ -107,4 +106,35 @@ body {
 .contentBlock.projects >* {
     display: flex;
     align-items: center;
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactField {
+    display: flex;
+    flex-direction: column;
+}
+.contactField>textarea{
+    height: 200px;
+    width: 600px;
+    margin-bottom: 20px;
+}
+.contactField>input  {
+    margin-bottom: 20px;
+}
+.contactButton {
+    display: flex;
+    flex-direction: row;
+}
+.contactButton>* {
+    flex-grow: 1;
+    margin: 2%;
+    background-color: gray;
+    border-radius: 20px;
+}
+.contactButton>*:hover {
+    background-color: white;
 }
