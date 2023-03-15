@@ -51,22 +51,35 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
     padding-left: 0%;
     padding-right: 0%;
     margin-left: 0%;
     margin-right: 0%;
-    height: 800px;
+    
 }
+
 .contentBlock {
-    width: 200px;
+    width: 300px;
     display: flex;
     justify-content: center;
     color: black;
     font-size: 20px;
     flex-grow: 1;
+    
 }
+@media screen and (max-width: 600px) {
+    .contentGrid {
+        flex-direction: column;
+    }
+    .contentBlock {
+        width: 80%;
+        flex-shrink: 1;
+    }
+  }
 .contentBlock.about {
     align-items: center;
+    height: 800px;
 }
 .textbox {
     background-color: var(--secondary);
@@ -76,6 +89,8 @@ body {
     border-color: var(--third);
     border-width: 5px;
     border-style: solid;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .contentBlock.work {
@@ -119,7 +134,7 @@ body {
 }
 .contactField>textarea{
     height: 200px;
-    width: 600px;
+    flex-grow: 1;
     margin-bottom: 20px;
 }
 .contactField>input  {

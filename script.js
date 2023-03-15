@@ -23,7 +23,11 @@ function setAbout()
 
     var textNode = document.createElement('p');
     textNode.className = "textbox";
-    textNode.innerText = 'Hello, I am Matthew Cole (He/Him). I am currently pursuing a Masters in Computer Science. I am generally interested in software engineering, but I am not particularly specialized within a given field. I have been programming since I was young and have coded in a wide variety of languages, but I am most comfortable in C#, Python, and C++. I generally am very flexible when it comes to languages since I have worked with so many and I am able to pick up languages relatively quickly. However, I would say that I find python to be my most comfortable language for very small programs and I find C# to be my most comfortable language for larger programs. I don\'t have really any projects of note which is a huge problem that I know I need to work on. Building up a portfolio is a big part of what a potential employer is going to look for and that is what I would consider my biggest current weakness.';
+    textNode.innerText = 'Hello, I am Matthew Cole (He/Him). I am currently pursuing a Masters in Computer Science. I am generally interested in software engineering across a wide variety ' +
+    'of different fields. I have been programming since I was young and have coded in a wide variety of languages, but I am most comfortable in C#, Python, and C++. I generally am very ' +
+    'flexible when it comes to languages since I have worked with so many and I am able to pick up languages relatively quickly. However, I would say that I find python to be my most '+
+    'comfortable language for very small programs and I find C# to be my most comfortable language for larger programs. I have worked on a number of interesting projects for school '+
+    'including a REST based airline web servlet and an optimizer for a compiler.';
     left.appendChild(textNode);
     var image = document.createElement("img");
     image.src = 'matthew.jpg';
@@ -65,7 +69,7 @@ function createListElement(title, elements, footer)
 function setPreviousWork()
 {
     setupTransition("work textbox");
-    createListElement("Classes", ["CS566","CS563","Adv Java*", "CS586", "Cobol*", "Compilation*", "CS 558", "CS 350", "CS 333", "CS 202", "CS 162"], "*refers to 510 topic class");
+    createListElement("Classes", ["CS566","CS563","Adv Java*", "CS586", "Cobol*", "Compilation*", "CS558", "CS350", "CS333", "CS202", "CS201", "CS251", "CS250"], "*510 topic class");
     createListElement("Languages", ["C++","Python","Java", "SQL","C#","HTML","Javascript","CSS"], "");
 }
 document.querySelector("#work").addEventListener("click", setPreviousWork);
