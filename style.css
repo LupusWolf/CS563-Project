@@ -122,7 +122,11 @@ body {
     display: flex;
     align-items: center;
 }
-
+.contentBlock.contact {
+    width: 600px;
+    flex-shrink: 1;
+    flex-grow: 0;
+}
 .contactForm {
     display: flex;
     flex-direction: column;
