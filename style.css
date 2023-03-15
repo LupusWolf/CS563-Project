@@ -1,5 +1,5 @@
 :root { 
-    --primary: rgba(128, 128, 128, 0.404); /*https://stackoverflow.com/questions/11807286/how-to-make-div-background-color-transparent-in-css*/
+    --primary: rgba(128, 128, 128, 0.404);
     --secondary: lightgray;
     --third: rgba(168, 167, 167, 0.418);
     --fourth: #d1495b;
@@ -11,7 +11,7 @@ body {
       rgb(245, 245, 245) 0%,
       rgb(137, 164, 252) 100%
     );
-    font-family: Trebuchet MS, sans-serif; /*https://www.w3.org/Style/Examples/007/fonts.en.html*/
+    font-family: Trebuchet MS, sans-serif;
     margin: 0;
 }
 .navbar {
@@ -30,9 +30,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*border-width: 0px 10px 0px 10px;*/
     color: black;
-    /*border-radius: 50px ;*/ /*https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius*/
     flex-grow: 1;
 }
 .navitem > * {

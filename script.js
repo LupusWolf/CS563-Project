@@ -1,13 +1,13 @@
 let contentNode = document.querySelector('.contentGrid');
 
-var currentState;
+var currentState; //Contains information on what page we are on
 
-function setupTransition(classname)
+function setupTransition(classname)  //Sets up basic info for changing page
 {
     currentState = classname;
     contentNode.innerHTML = '';
 }
-function createContentBlock()
+function createContentBlock() //Adds a new content block to the dom and returns it to the calling code
 {
     var contentBlock = document.createElement('li');
     contentBlock.className = "contentBlock " + currentState;
@@ -15,7 +15,7 @@ function createContentBlock()
     return contentBlock;
 }
 
-function setAbout()
+function setAbout() //Sets the about page of the website
 {
     setupTransition("about");
     var left = createContentBlock();
@@ -40,7 +40,7 @@ function setAbout()
 }
 document.querySelector("#about").addEventListener("click", setAbout);
 
-function createListElement(title, elements, footer)
+function createListElement(title, elements, footer) //Creates a list element with a new contect block from a title, a list of elements, and optionally a footer
 {
     var node = createContentBlock();
     var header = document.createElement("h2");
@@ -66,7 +66,7 @@ function createListElement(title, elements, footer)
     
 }
 
-function setPreviousWork()
+function setPreviousWork() //Sets up the page for previous work/experience
 {
     setupTransition("work textbox");
     createListElement("Classes", ["CS566","CS563","Adv Java*", "CS586", "Cobol*", "Compilation*", "CS558", "CS350", "CS333", "CS202", "CS201", "CS251", "CS250"], "*510 topic class");
@@ -74,7 +74,7 @@ function setPreviousWork()
 }
 document.querySelector("#work").addEventListener("click", setPreviousWork);
 
-function setOneProject(title, githubUrl, description)
+function setOneProject(title, githubUrl, imageurl, description) //Sets up a project in a new content block with a given title, github url, and description
 {
     var node = createContentBlock();
     var childNode = document.createElement("p");
@@ -84,21 +84,28 @@ function setOneProject(title, githubUrl, description)
     childNode.innerText = description;
     node.append(childNode);
 
+    var image = document.createElement("img");
+    image.src = imageurl;
+    image.style.width = "100%";
+    image.alt = "code of " + title;
+    image.style.display = "block";
+    node.append(image);
+
 }
-function setProjects()
+function setProjects() //Sets up project page
 {
     setupTransition("projects textbox");
     
-    setOneProject("Optimizer/Compiler", "https://github.com/PSU-Essentials-of-Compilation/python-compiler-team6/tree/week6", "This code optimizes compiled code by " + 
+    setOneProject("Optimizer/Compiler", "https://github.com/PSU-Essentials-of-Compilation/python-compiler-team6/tree/week6","compiler.jpg", "This code optimizes compiled code by " + 
         "performing constant propagation, partial evaluation, branch removal, and useless instruction removal. These are then performed itertively for maximum optimization.")
-    setOneProject("Airline Manager", "https://github.com/LupusWolf/PortlandStateAdvancedJava/tree/main/airline-web","This application consists of two parts:" +
+    setOneProject("Airline Manager", "https://github.com/LupusWolf/PortlandStateAdvancedJava/tree/main/airline-web","airline.jpg", "This application consists of two parts:" +
     "\n\nThe first application is a webserver that allows POST requests to add flights to the server and get requests to search for flights based on criteria" +
     "\n\nThe second application is an interface that allows the user to interact with the webserver through the commandline")
 }
 document.querySelector("#projects").addEventListener("click", setProjects);
 
 
-function addField(form, name, inputType, big)
+function addField(form, name, inputType, big) //Adds a field to the contact form
 {
     var container = document.createElement("div");
     container.className = "contactField";
@@ -107,14 +114,14 @@ function addField(form, name, inputType, big)
     <${big ? "textarea" : `input type="${inputType}"`}  id="${name}" name="${name}" />`
     form.appendChild(container);
 }
-function addButton(form, name, inputType)
+function addButton(form, name, inputType) //Adds a button to the button container in the contact form
 {
     var button = document.createElement("button");
     button.innerText = name;
     button.type = inputType;
     form.appendChild(button);
 }
-function setContact()
+function setContact() //Sets up the contact page
 {
     setupTransition("contact");
     var main = createContentBlock();
