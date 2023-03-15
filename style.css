@@ -1,7 +1,7 @@
 :root {
   --primary: rgba(128, 128, 128, 0.404);
-  --secondary: lightgray;
-  --third: rgba(168, 167, 167, 0.418);
+  --secondary: rgba(211, 211, 211, 0.411);
+  --third: rgba(168, 167, 167, 0.404);
   --fourth: #d1495b;
 }
 body {
