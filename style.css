@@ -1,157 +1,155 @@
-:root { 
-    --primary: rgba(128, 128, 128, 0.404);
-    --secondary: lightgray;
-    --third: rgba(168, 167, 167, 0.418);
-    --fourth: #d1495b;
-  }
+:root {
+  --primary: rgba(128, 128, 128, 0.404);
+  --secondary: lightgray;
+  --third: rgba(168, 167, 167, 0.418);
+  --fourth: #d1495b;
+}
 body {
-    background: rgb(246, 219, 231);
-    background: radial-gradient(
-      circle,
-      rgb(245, 245, 245) 0%,
-      rgb(137, 164, 252) 100%
-    );
-    font-family: Trebuchet MS, sans-serif;
-    margin: 0;
+  background: rgb(246, 219, 231);
+  background: radial-gradient(
+    circle,
+    rgb(245, 245, 245) 0%,
+    rgb(137, 164, 252) 100%
+  );
+  font-family: Trebuchet MS, sans-serif;
+  margin: 0;
 }
 .navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    background-color: var(--primary);
-    padding-left: 0%;
-    padding-right: 0%;
-    margin-left: 0%;
-    margin-right: 0%;
-    height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  background-color: var(--primary);
+  padding-left: 0%;
+  padding-right: 0%;
+  margin-left: 0%;
+  margin-right: 0%;
+  height: 60px;
 }
 .navitem {
-    width: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    flex-grow: 1;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  flex-grow: 1;
 }
 .navitem > * {
-    color: black;
-    opacity: 100%;
+  color: black;
+  opacity: 100%;
 }
 .navbutton:hover {
-    background-color: var(--fourth);
+  background-color: var(--fourth);
 }
 
 .navheader {
-    width: 300px;
+  width: 300px;
 }
 .contentGrid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    padding-left: 0%;
-    padding-right: 0%;
-    margin-left: 0%;
-    margin-right: 0%;
-    
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding-left: 0%;
+  padding-right: 0%;
+  margin-left: 0%;
+  margin-right: 0%;
 }
 
 .contentBlock {
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    color: black;
-    font-size: 20px;
-    flex-grow: 1;
-    
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 20px;
+  flex-grow: 1;
 }
 @media screen and (max-width: 600px) {
-    .contentGrid {
-        flex-direction: column;
-    }
-    .contentBlock {
-        width: 80%;
-        flex-shrink: 1;
-    }
+  .contentGrid {
+    flex-direction: column;
   }
+  .contentBlock {
+    width: 80%;
+    flex-shrink: 1;
+  }
+}
 .contentBlock.about {
-    align-items: center;
-    height: 800px;
+  align-items: center;
+  height: 800px;
 }
 .textbox {
-    background-color: var(--secondary);
-    padding: 5%;
-    border-radius: 50px;
-    margin: 5%;
-    border-color: var(--third);
-    border-width: 5px;
-    border-style: solid;
-    flex-grow: 1;
-    flex-shrink: 1;
+  background-color: var(--secondary);
+  padding: 5%;
+  border-radius: 50px;
+  margin: 5%;
+  border-color: var(--third);
+  border-width: 5px;
+  border-style: solid;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .contentBlock.work {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .resumeList {
-    display: flex;
-    padding-top: 20%;
-    list-style: none;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
+  display: flex;
+  padding-top: 20%;
+  list-style: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
 }
-.resumeList >*{
-    display: flex;
-    justify-content: center;
-    width: 130px;
-    height: 100px;
+.resumeList > * {
+  display: flex;
+  justify-content: center;
+  width: 130px;
+  height: 100px;
 }
 
 .contentBlock.projects {
-    justify-content: flex-start;
-    flex-direction: column;
+  justify-content: flex-start;
+  flex-direction: column;
 }
-.contentBlock.projects >* {
-    display: flex;
-    align-items: center;
+.contentBlock.projects > * {
+  display: flex;
+  align-items: center;
 }
 .contentBlock.contact {
-    width: 600px;
-    flex-shrink: 1;
-    flex-grow: 0;
+  width: 600px;
+  flex-shrink: 1;
+  flex-grow: 0;
 }
 .contactForm {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .contactField {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-.contactField>textarea{
-    height: 200px;
-    flex-grow: 1;
-    margin-bottom: 20px;
+.contactField > textarea {
+  height: 200px;
+  flex-grow: 1;
+  margin-bottom: 20px;
 }
-.contactField>input  {
-    margin-bottom: 20px;
+.contactField > input {
+  margin-bottom: 20px;
 }
 .contactButton {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
-.contactButton>* {
-    flex-grow: 1;
-    margin: 2%;
-    background-color: gray;
-    border-radius: 20px;
+.contactButton > * {
+  flex-grow: 1;
+  margin: 2%;
+  background-color: gray;
+  border-radius: 20px;
 }
-.contactButton>*:hover {
-    background-color: white;
+.contactButton > *:hover {
+  background-color: white;
 }
