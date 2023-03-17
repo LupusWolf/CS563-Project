@@ -1,6 +1,6 @@
-let contentNode = document.querySelector(".contentGrid");
+const contentNode = document.querySelector(".contentGrid");
 
-var currentState; //Contains information on what page we are on
+let currentState; //Contains information on what page we are on
 
 function setupTransition(classname) {
   //Sets up basic info for changing page
@@ -9,7 +9,7 @@ function setupTransition(classname) {
 }
 function createContentBlock() {
   //Adds a new content block to the dom and returns it to the calling code
-  var contentBlock = document.createElement("li");
+  const contentBlock = document.createElement("li");
   contentBlock.className = "contentBlock " + currentState;
   contentNode.appendChild(contentBlock);
   return contentBlock;
@@ -18,47 +18,50 @@ function createContentBlock() {
 function setAbout() {
   //Sets the about page of the website
   setupTransition("about");
-  var left = createContentBlock();
-  var right = createContentBlock();
+  const left = createContentBlock();
+  const right = createContentBlock();
 
-  var textNode = document.createElement("p");
-  textNode.className = "textbox";
+  const textBox = document.createElement("div");
+  textBox.className = "textbox";
+
+  const textNode = document.createElement("p");
   textNode.innerText =
-    "Hello, I am Matthew Cole (He/Him). I am currently pursuing a Masters in Computer Science. I am generally interested in software engineering across a wide variety " +
-    "of different fields. I have been programming since I was young and have coded in a wide variety of languages, but I am most comfortable in C#, Python, and C++. I generally am very " +
+    "Hello, I am Matthew Cole (He/Him). I am currently pursuing a Masters in Computer Science. I am generally interested in software engineering across a wide letiety " +
+    "of different fields. I have been programming since I was young and have coded in a wide letiety of languages, but I am most comfortable in C#, Python, and C++. I generally am very " +
     "flexible when it comes to languages since I have worked with so many and I am able to pick up languages relatively quickly. However, I would say that I find python to be my most " +
     "comfortable language for very small programs and I find C# to be my most comfortable language for larger programs. I have worked on a number of interesting projects for school " +
     "including a REST based airline web servlet and an optimizer for a compiler.";
-  left.appendChild(textNode);
-  var image = document.createElement("img");
+  textBox.appendChild(textNode);
+  right.appendChild(textBox);
+  const image = document.createElement("img");
   image.src = "matthew.jpg";
   image.width = 400;
   image.height = 400;
   image.style.borderRadius = "70px";
   image.alt = "headshot of Matthew Cole";
   image.style.display = "block";
-  right.append(image);
+  left.append(image);
 }
 document.querySelector("#about").addEventListener("click", setAbout);
 
 function createListElement(title, elements, footer) {
   //Creates a list element with a new contect block from a title, a list of elements, and optionally a footer
-  var node = createContentBlock();
-  var header = document.createElement("h2");
+  const node = createContentBlock();
+  const header = document.createElement("h2");
   header.innerText = title;
   node.append(header);
-  var listNode = document.createElement("ul");
+  const listNode = document.createElement("ul");
   listNode.className = "resumeList";
 
-  for (let element in elements) {
-    var childNode = document.createElement("li");
+  for (const element in elements) {
+    const childNode = document.createElement("li");
     childNode.innerText = elements[element];
     listNode.append(childNode);
   }
   node.append(listNode);
 
-  if (footer != "") {
-    var footerNode = document.createElement("p");
+  if (footer !== "") {
+    const footerNode = document.createElement("p");
     footerNode.innerText = footer;
     node.append(footerNode);
   }
@@ -96,15 +99,15 @@ document.querySelector("#work").addEventListener("click", setPreviousWork);
 
 function setOneProject(title, githubUrl, imageurl, description) {
   //Sets up a project in a new content block with a given title, github url, and description
-  var node = createContentBlock();
-  var childNode = document.createElement("p");
-  childNode.innerHTML = `<a href="${githubUrl}"><h2>${title}</h2></a>`;
-  node.append(childNode);
-  childNode = document.createElement("p");
-  childNode.innerText = description;
-  node.append(childNode);
+  const node = createContentBlock();
+  const header = document.createElement("p");
+  header.innerHTML = `<a href="${githubUrl}"><h2>${title}</h2></a>`;
+  node.append(header);
+  const descriptionNode = document.createElement("p");
+  descriptionNode.innerText = description;
+  node.append(descriptionNode);
 
-  var image = document.createElement("img");
+  const image = document.createElement("img");
   image.src = imageurl;
   image.style.width = "100%";
   image.alt = "code of " + title;
@@ -135,7 +138,7 @@ document.querySelector("#projects").addEventListener("click", setProjects);
 
 function addField(form, name, inputType, big) {
   //Adds a field to the contact form
-  var container = document.createElement("div");
+  const container = document.createElement("div");
   container.className = "contactField";
   container.innerHTML = `
     <label for="${name}">${name}:</label>
@@ -146,7 +149,7 @@ function addField(form, name, inputType, big) {
 }
 function addButton(form, name, inputType) {
   //Adds a button to the button container in the contact form
-  var button = document.createElement("button");
+  const button = document.createElement("button");
   button.innerText = name;
   button.type = inputType;
   form.appendChild(button);
@@ -154,11 +157,11 @@ function addButton(form, name, inputType) {
 function setContact() {
   //Sets up the contact page
   setupTransition("contact");
-  var main = createContentBlock();
+  const main = createContentBlock();
 
-  var form = document.createElement("form");
+  const form = document.createElement("form");
   form.className = "contactForm";
-  var header = document.createElement("h2");
+  const header = document.createElement("h2");
   header.innerText = "Contact Form:";
   form.append(header);
   form.className = "textbox";
@@ -166,7 +169,7 @@ function setContact() {
   addField(form, "Email", "email", false);
   addField(form, "Message", "text", true);
 
-  var buttons = document.createElement("div");
+  const buttons = document.createElement("div");
   buttons.className = "contactButton";
   addButton(buttons, "Submit", "submit");
   addButton(buttons, "Reset", "reset");
