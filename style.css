@@ -14,6 +14,13 @@ body {
   font-family: Trebuchet MS, sans-serif;
   margin: 0;
 }
+html,
+body,
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .navbar {
   display: flex;
   flex-direction: row;
@@ -41,7 +48,6 @@ body {
 .navbutton:hover {
   background-color: var(--fourth);
 }
-
 .navheader {
   width: 300px;
   flex-shrink: 1;
@@ -57,12 +63,12 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
+  flex-grow: 1;
   padding-left: 0%;
   padding-right: 0%;
   margin-left: 0%;
   margin-right: 0%;
 }
-
 .contentBlock {
   width: 400px;
   display: flex;
@@ -71,7 +77,6 @@ body {
   font-size: 20px;
   flex-grow: 1;
 }
-
 @media screen and (max-width: 600px) {
   ul.contentGrid {
     align-items: center;
@@ -97,9 +102,12 @@ body {
   border-style: solid;
   flex-grow: 1;
 }
+.contentBlock.about > .textbox {
+  flex-grow: 0;
+}
 @media screen and (max-width: 600px) {
   .textbox {
-    padding: 1%;
+    padding: 5%;
     margin: 1%;
   }
 }
@@ -123,7 +131,6 @@ body {
   width: 130px;
   height: 100px;
 }
-
 .contentBlock.projects {
   justify-content: flex-start;
   flex-direction: column;
@@ -148,11 +155,19 @@ body {
   display: flex;
   flex-direction: column;
   flex-shrink: 1;
+  flex-grow: 1;
 }
-
 .contactField {
   display: flex;
   flex-direction: column;
+  flex-grow: 0;
+}
+.contactField > input,
+textarea {
+  background-color: rgba(256, 256, 256, 0.5);
+}
+.growable {
+  flex-grow: 1;
 }
 .contactField > textarea {
   height: 200px;

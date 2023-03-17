@@ -47,9 +47,11 @@ document.querySelector("#about").addEventListener("click", setAbout);
 function createListElement(title, elements, footer) {
   //Creates a list element with a new contect block from a title, a list of elements, and optionally a footer
   const node = createContentBlock();
+
   const header = document.createElement("h2");
   header.innerText = title;
   node.append(header);
+
   const listNode = document.createElement("ul");
   listNode.className = "resumeList";
 
@@ -103,6 +105,7 @@ function setOneProject(title, githubUrl, imageurl, description) {
   const header = document.createElement("p");
   header.innerHTML = `<a href="${githubUrl}"><h2>${title}</h2></a>`;
   node.append(header);
+
   const descriptionNode = document.createElement("p");
   descriptionNode.innerText = description;
   node.append(descriptionNode);
@@ -139,7 +142,7 @@ document.querySelector("#projects").addEventListener("click", setProjects);
 function addField(form, name, inputType, big) {
   //Adds a field to the contact form
   const container = document.createElement("div");
-  container.className = "contactField";
+  container.className = `contactField${big ? " growable" : ""}`;
   container.innerHTML = `
     <label for="${name}">${name}:</label>
     <${
@@ -160,11 +163,12 @@ function setContact() {
   const main = createContentBlock();
 
   const form = document.createElement("form");
-  form.className = "contactForm";
+  form.className = "contactForm textbox";
+
   const header = document.createElement("h2");
   header.innerText = "Contact Form:";
+
   form.append(header);
-  form.className = "textbox";
   addField(form, "Name", "text", false);
   addField(form, "Email", "email", false);
   addField(form, "Message", "text", true);
@@ -173,6 +177,7 @@ function setContact() {
   buttons.className = "contactButton";
   addButton(buttons, "Submit", "submit");
   addButton(buttons, "Reset", "reset");
+
   form.appendChild(buttons);
   main.appendChild(form);
 }
